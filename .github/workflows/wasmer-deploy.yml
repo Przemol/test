@@ -12,11 +12,13 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install Wasmer CLI
-        run: curl -fsSL https://wasmer.io/install.sh | bash
+        run: |
+          curl -fsSL https://github.com/wasmerio/wasmer/releases/latest/download/wasmer-linux-amd64.tar.gz -o /tmp/wasmer.tar.gz
+          mkdir -p "$HOME/.wasmer/bin"
+          tar -xzf /tmp/wasmer.tar.gz -C "$HOME/.wasmer"
+          echo "$HOME/.wasmer/bin" >> "$GITHUB_PATH"
 
       - name: Deploy to Wasmer Edge
-        run: |
-          export PATH="$HOME/.wasmer/bin:$PATH"
-          wasmer deploy --token "$WASMER_TOKEN" --publish-package --non-interactive
+        run: wasmer deploy --token "$WASMER_TOKEN" --publish-package --non-interactive
         env:
           WASMER_TOKEN: ${{ secrets.WASMER_TOKEN }}
