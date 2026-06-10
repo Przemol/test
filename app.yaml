@@ -1,0 +1,8 @@
+kind: wasmer.io/App.v0
+name: test
+owner: przemol
+package: .
+
+capabilities:
+  instaboot:
+    requests: 20

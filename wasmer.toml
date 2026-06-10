@@ -1,0 +1,15 @@
+[package]
+name = "przemol/test"
+version = "0.1.0"
+description = "Test app deployed via Claude Code"
+
+[[command]]
+name = "server"
+module = "wasmer/static-web-server:webserver"
+runner = "https://webc.org/runner/wcgi"
+
+[command.annotations.wcgi]
+dialect = "rfc-3875"
+
+[fs]
+"/public" = "public"
