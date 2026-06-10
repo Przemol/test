@@ -1,0 +1,18 @@
+[package]
+name = "caremen-site"
+version = "0.1.0"
+description = "Caremen — Official Artist Site"
+
+[[command]]
+name = "server"
+module = "wasmer-contrib/static-web-server:webserver"
+runner = "https://webc.org/runner/wasi"
+
+[command.annotations.wasi]
+main-args = ["-w", "/public"]
+
+[fs]
+"/public" = "."
+
+[deploy]
+app-name = "caremen-site"

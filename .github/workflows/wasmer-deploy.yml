@@ -1,0 +1,22 @@
+name: Deploy to Wasmer Edge
+
+on:
+  push:
+    branches: ['claude/rap-artist-landing-page-hfa9oo']
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Wasmer CLI
+        run: curl -fsSL https://wasmer.io/install.sh | bash
+
+      - name: Deploy to Wasmer Edge
+        run: |
+          export PATH="$HOME/.wasmer/bin:$PATH"
+          wasmer deploy --token "$WASMER_TOKEN" --publish-package --non-interactive
+        env:
+          WASMER_TOKEN: ${{ secrets.WASMER_TOKEN }}
