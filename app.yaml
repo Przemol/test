@@ -1,8 +1,4 @@
 kind: wasmer.io/App.v0
 name: test
-owner: przemol
+owner: pstempor
 package: .
-
-capabilities:
-  instaboot:
-    requests: 20

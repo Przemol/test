@@ -19,31 +19,7 @@ jobs:
       - name: Install Wasmer
         uses: wasmerio/setup-wasmer@v3.1
 
-      - name: Resolve Wasmer owner from token
-        id: owner
-        env:
-          WASMER_TOKEN: ${{ inputs.wasmer_token || secrets.WASMER_TOKEN }}
-        run: |
-          # Query the Wasmer registry GraphQL API for the token's username
-          RESPONSE=$(curl -s --max-time 15 \
-            -H "Authorization: Bearer $WASMER_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"query":"{ viewer { username } }"}' \
-            https://registry.wasmer.io/graphql)
-          echo "GraphQL response: $RESPONSE"
-          WASMER_USER=$(echo "$RESPONSE" | python3 -c "import sys,json; print(json.load(sys.stdin)['data']['viewer']['username'])" 2>/dev/null || echo "")
-          echo "Resolved Wasmer user: $WASMER_USER"
-          echo "user=$WASMER_USER" >> "$GITHUB_OUTPUT"
-
       - name: Deploy to Wasmer Edge
         env:
           WASMER_TOKEN: ${{ inputs.wasmer_token || secrets.WASMER_TOKEN }}
-        run: |
-          WASMER_USER="${{ steps.owner.outputs.user }}"
-          if [ -n "$WASMER_USER" ]; then
-            echo "Updating app owner to: $WASMER_USER"
-            sed -i "s/^owner: .*/owner: $WASMER_USER/" app.yaml
-          fi
-          echo "=== app.yaml ==="
-          cat app.yaml
-          wasmer deploy --non-interactive
+        run: wasmer deploy --non-interactive
