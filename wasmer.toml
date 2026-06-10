@@ -1,7 +1,10 @@
 [package]
-name = "Przemol/caremen-site"
+name = "pstempor/caremen-site"
 version = "0.1.0"
 description = "Caremen — Official Artist Site"
+
+[dependencies]
+"wasmer-contrib/static-web-server" = "*"
 
 [[command]]
 name = "server"
