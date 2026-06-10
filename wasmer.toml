@@ -13,6 +13,3 @@ main-args = ["-w", "/public"]
 
 [fs]
 "/public" = "."
-
-[deploy]
-app-name = "caremen-site"
