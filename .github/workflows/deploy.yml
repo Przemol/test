@@ -19,7 +19,25 @@ jobs:
       - name: Install Wasmer
         uses: wasmerio/setup-wasmer@v3.1
 
+      - name: Check Wasmer identity
+        id: whoami
+        env:
+          WASMER_TOKEN: ${{ inputs.wasmer_token || secrets.WASMER_TOKEN }}
+        run: |
+          echo "=== wasmer whoami output ==="
+          wasmer whoami
+          WASMER_USER=$(wasmer whoami | awk '{print $NF}')
+          echo "Detected user: $WASMER_USER"
+          echo "user=$WASMER_USER" >> "$GITHUB_OUTPUT"
+
       - name: Deploy to Wasmer Edge
         env:
           WASMER_TOKEN: ${{ inputs.wasmer_token || secrets.WASMER_TOKEN }}
-        run: wasmer deploy --non-interactive
+        run: |
+          WASMER_USER="${{ steps.whoami.outputs.user }}"
+          if [ -n "$WASMER_USER" ]; then
+            sed -i "s/^owner: .*/owner: $WASMER_USER/" app.yaml
+          fi
+          echo "=== app.yaml ==="
+          cat app.yaml
+          wasmer deploy --non-interactive
