@@ -4,11 +4,11 @@ version = "0.1.0"
 description = "Caremen — Official Artist Site"
 
 [dependencies]
-"wasmer-contrib/static-web-server" = "*"
+"wasmer/static-web-server" = "^1"
 
 [[command]]
 name = "server"
-module = "wasmer-contrib/static-web-server:webserver"
+module = "wasmer/static-web-server:webserver"
 runner = "https://webc.org/runner/wasi"
 
 [command.annotations.wasi]
