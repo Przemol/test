@@ -31,6 +31,9 @@ jobs:
           echo "$HOME/.wasmer/bin" >> "$GITHUB_PATH"
 
       - name: Deploy to Wasmer Edge
-        run: wasmer deploy --token "$WASMER_TOKEN" --owner Przemol --publish-package --non-interactive
+        run: |
+          OWNER=$(wasmer whoami --token "$WASMER_TOKEN" 2>&1 | awk '{print $NF}')
+          echo "Deploying as owner: $OWNER"
+          wasmer deploy --token "$WASMER_TOKEN" --owner "$OWNER" --publish-package --non-interactive
         env:
           WASMER_TOKEN: ${{ secrets.WASMER_TOKEN != '' && secrets.WASMER_TOKEN || github.event.inputs.wasmer_token }}
