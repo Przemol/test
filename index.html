@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XENO — Official Site</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__logo">XENO</div>
+    <ul class="nav__links">
+      <li><a href="#music">Music</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#tour">Tour</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Toggle menu">&#9776;</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__tag">New Album Out Now</p>
+      <h1 class="hero__title">XENO</h1>
+      <p class="hero__sub">From the underground to the stratosphere.</p>
+      <div class="hero__actions">
+        <a href="#music" class="btn btn--primary">Listen Now</a>
+        <a href="#tour" class="btn btn--outline">Get Tickets</a>
+      </div>
+    </div>
+    <div class="hero__scroll-hint">scroll ↓</div>
+  </section>
+
+  <!-- LATEST RELEASE -->
+  <section class="release" id="music">
+    <div class="container">
+      <span class="section-label">Latest Release</span>
+      <h2 class="section-title">Neon Shadows</h2>
+      <div class="release__grid">
+        <div class="release__cover">
+          <div class="cover-art">
+            <div class="cover-art__inner">
+              <span class="cover-art__title">NEON<br/>SHADOWS</span>
+              <span class="cover-art__artist">XENO</span>
+            </div>
+          </div>
+        </div>
+        <div class="release__tracks">
+          <ol class="tracklist">
+            <li class="tracklist__item active">
+              <span class="track-num">01</span>
+              <span class="track-name">Dead Stars</span>
+              <span class="track-dur">3:42</span>
+              <button class="play-btn" aria-label="Play">&#9654;</button>
+            </li>
+            <li class="tracklist__item">
+              <span class="track-num">02</span>
+              <span class="track-name">Neon Shadows</span>
+              <span class="track-dur">4:01</span>
+              <button class="play-btn" aria-label="Play">&#9654;</button>
+            </li>
+            <li class="tracklist__item">
+              <span class="track-num">03</span>
+              <span class="track-name">Ghost Protocol</span>
+              <span class="track-dur">3:28</span>
+              <button class="play-btn" aria-label="Play">&#9654;</button>
+            </li>
+            <li class="tracklist__item">
+              <span class="track-num">04</span>
+              <span class="track-name">Infrared</span>
+              <span class="track-dur">4:15</span>
+              <button class="play-btn" aria-label="Play">&#9654;</button>
+            </li>
+            <li class="tracklist__item">
+              <span class="track-num">05</span>
+              <span class="track-name">Last of My Kind</span>
+              <span class="track-dur">3:55</span>
+              <button class="play-btn" aria-label="Play">&#9654;</button>
+            </li>
+            <li class="tracklist__item">
+              <span class="track-num">06</span>
+              <span class="track-name">Concrete Sky</span>
+              <span class="track-dur">5:02</span>
+              <button class="play-btn" aria-label="Play">&#9654;</button>
+            </li>
+          </ol>
+          <div class="release__stream">
+            <span>Stream on:</span>
+            <div class="stream-links">
+              <a href="#" class="stream-badge">Spotify</a>
+              <a href="#" class="stream-badge">Apple Music</a>
+              <a href="#" class="stream-badge">SoundCloud</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container about__grid">
+      <div class="about__portrait">
+        <div class="portrait-placeholder">
+          <span>XENO</span>
+        </div>
+      </div>
+      <div class="about__text">
+        <span class="section-label">About</span>
+        <h2 class="section-title">The Artist</h2>
+        <p>XENO emerged from the streets of Detroit with nothing but a cracked laptop and an unshakeable vision. Blending gritty lyricism with cinematic production, his sound sits at the crossroads of raw emotion and technical precision.</p>
+        <p>With over 50 million streams across platforms, two sold-out tours, and collaborations with industry legends, XENO is rewriting the rules of modern hip-hop — one bar at a time.</p>
+        <div class="about__stats">
+          <div class="stat">
+            <span class="stat__num">50M+</span>
+            <span class="stat__label">Streams</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">3</span>
+            <span class="stat__label">Albums</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num">200+</span>
+            <span class="stat__label">Shows</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOUR DATES -->
+  <section class="tour" id="tour">
+    <div class="container">
+      <span class="section-label">On the Road</span>
+      <h2 class="section-title">Tour Dates</h2>
+      <div class="tour__list">
+        <div class="tour__item">
+          <div class="tour__date">
+            <span class="tour__month">JUL</span>
+            <span class="tour__day">12</span>
+          </div>
+          <div class="tour__info">
+            <p class="tour__venue">The Fillmore</p>
+            <p class="tour__city">Detroit, MI</p>
+          </div>
+          <a href="#" class="btn btn--sm">Tickets</a>
+        </div>
+        <div class="tour__item">
+          <div class="tour__date">
+            <span class="tour__month">JUL</span>
+            <span class="tour__day">18</span>
+          </div>
+          <div class="tour__info">
+            <p class="tour__venue">House of Blues</p>
+            <p class="tour__city">Chicago, IL</p>
+          </div>
+          <a href="#" class="btn btn--sm">Tickets</a>
+        </div>
+        <div class="tour__item">
+          <div class="tour__date">
+            <span class="tour__month">JUL</span>
+            <span class="tour__day">25</span>
+          </div>
+          <div class="tour__info">
+            <p class="tour__venue">Bowery Ballroom</p>
+            <p class="tour__city">New York, NY</p>
+          </div>
+          <a href="#" class="btn btn--sm">Tickets</a>
+        </div>
+        <div class="tour__item">
+          <div class="tour__date">
+            <span class="tour__month">AUG</span>
+            <span class="tour__day">03</span>
+          </div>
+          <div class="tour__info">
+            <p class="tour__venue">The Novo</p>
+            <p class="tour__city">Los Angeles, CA</p>
+          </div>
+          <a href="#" class="btn btn--sm">Tickets</a>
+        </div>
+        <div class="tour__item">
+          <div class="tour__date">
+            <span class="tour__month">AUG</span>
+            <span class="tour__day">10</span>
+          </div>
+          <div class="tour__info">
+            <p class="tour__venue">Neumos</p>
+            <p class="tour__city">Seattle, WA</p>
+          </div>
+          <a href="#" class="btn btn--sm">Tickets</a>
+        </div>
+        <div class="tour__item">
+          <div class="tour__date">
+            <span class="tour__month">AUG</span>
+            <span class="tour__day">22</span>
+          </div>
+          <div class="tour__info">
+            <p class="tour__venue">Marquee Theatre</p>
+            <p class="tour__city">Phoenix, AZ</p>
+          </div>
+          <a href="#" class="btn btn--sm">Tickets</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / NEWSLETTER -->
+  <section class="contact" id="contact">
+    <div class="container contact__inner">
+      <span class="section-label">Stay Connected</span>
+      <h2 class="section-title">Join the Movement</h2>
+      <p class="contact__sub">Get exclusive drops, tour presales, and behind-the-scenes content straight to your inbox.</p>
+      <form class="contact__form" onsubmit="handleSubmit(event)">
+        <input type="email" placeholder="your@email.com" required class="contact__input" />
+        <button type="submit" class="btn btn--primary">Subscribe</button>
+      </form>
+      <p class="contact__confirm" id="confirm-msg"></p>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+        <a href="#" class="social-link" aria-label="Twitter/X">X</a>
+        <a href="#" class="social-link" aria-label="YouTube">YT</a>
+        <a href="#" class="social-link" aria-label="TikTok">TK</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 XENO. All rights reserved.</p>
+    <p class="footer__legal">Booking: <a href="mailto:booking@xenoofficial.com">booking@xenoofficial.com</a></p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
