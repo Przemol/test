@@ -1,7 +1,10 @@
 [package]
-name = "przemol/test"
+name = "pstempor/test"
 version = "0.1.0"
 description = "Test app deployed via Claude Code"
+
+[dependencies]
+"wasmer/static-web-server" = "^1"
 
 [[command]]
 name = "server"
