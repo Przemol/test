@@ -14,12 +14,12 @@ navLinks.querySelectorAll('a').forEach(a => {
 
 // ── Track Data ───────────────────────────────────
 const TRACKS = [
-  { name: 'Dead Stars',       dur: '3:42', secs: 222 },
-  { name: 'Neon Shadows',     dur: '4:01', secs: 241 },
-  { name: 'Ghost Protocol',   dur: '3:28', secs: 208 },
-  { name: 'Infrared',         dur: '4:15', secs: 255 },
-  { name: 'Last of My Kind',  dur: '3:55', secs: 235 },
-  { name: 'Concrete Sky',     dur: '5:02', secs: 302 },
+  { name: 'Cold Concrete',  dur: '3:24', secs: 204 },
+  { name: 'Hard Wired',     dur: '4:08', secs: 248 },
+  { name: 'Reality.exe',    dur: '3:51', secs: 231 },
+  { name: 'No Filter',      dur: '3:38', secs: 218 },
+  { name: 'Street Logic',   dur: '4:14', secs: 254 },
+  { name: 'Raw Signal',     dur: '5:06', secs: 306 },
 ];
 
 // ── Player State ─────────────────────────────────
