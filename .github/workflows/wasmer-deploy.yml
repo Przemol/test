@@ -4,12 +4,24 @@ on:
   push:
     branches: ['claude/rap-artist-landing-page-hfa9oo']
   workflow_dispatch:
+    inputs:
+      wasmer_token:
+        description: 'Wasmer API token (used only when WASMER_TOKEN secret is not set)'
+        required: false
+        type: string
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Mask token
+        run: |
+          TOKEN="${{ github.event.inputs.wasmer_token }}"
+          if [ -n "$TOKEN" ]; then
+            echo "::add-mask::$TOKEN"
+          fi
 
       - name: Install Wasmer CLI
         run: |
@@ -19,6 +31,6 @@ jobs:
           echo "$HOME/.wasmer/bin" >> "$GITHUB_PATH"
 
       - name: Deploy to Wasmer Edge
-        run: wasmer deploy --token "$WASMER_TOKEN" --publish-package --non-interactive
+        run: wasmer deploy --token "$WASMER_TOKEN" --owner Przemol --publish-package --non-interactive
         env:
-          WASMER_TOKEN: ${{ secrets.WASMER_TOKEN }}
+          WASMER_TOKEN: ${{ secrets.WASMER_TOKEN != '' && secrets.WASMER_TOKEN || github.event.inputs.wasmer_token }}
